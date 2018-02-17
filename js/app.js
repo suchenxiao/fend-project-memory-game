@@ -41,6 +41,9 @@ function shuffle(array) {
  *    + 如果所有卡都匹配，则显示带有最终分数的消息（将这个功能放在你从这个函数中调用的另一个函数中）
  */
 
+//初始化卡片,全部隐藏
+$cards.removeClass().addClass('card');
+
 //卡片点击效果
 $cards.on('click', function() {
 	$(this).addClass('open show');
