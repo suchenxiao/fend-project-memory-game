@@ -3,19 +3,71 @@ var $cards = $('.card');
 var $stars = $('.stars li i');
 var $moves = $('.moves');
 var $restart = $('.restart');
-
-//获取卡片内容(HTML)，并进行洗牌
+//获取卡片内容(HTML)
 var cardsHTML = [];
 $cards.each(function(i) {
-    cardsHTML[i] = $(this).html();
-});
-shuffle(cardsHTML);
-
-//将洗牌的内容替换原内容
-$cards.each(function(i) {
-    $(this).html(cardsHTML[i]);
+	cardsHTML[i] = $(this).html();
 });
 
+restart();
+
+//点击卡片
+$cards.on('click', function() {
+	cardShow($(this));
+	var $opened = $cards.filter('.open');
+	if ($opened.length == 2){
+		addMoves($moves);
+        if ($opened.first().html() == $opened.last().html()){
+            cardMatch($opened);
+        } else {
+		    cardHidden($opened);
+		}
+	}
+})
+
+//点击重新开始
+$restart.on('click', function() {
+    restart();
+});
+
+//重新开始
+function restart(){
+
+    //准备洗牌列表
+    shuffle(cardsHTML);
+
+    //洗牌内容替换
+    $cards.each(function(i) {
+        $(this).html(cardsHTML[i]);
+    });
+
+    //隐藏全部卡片
+	cardHidden($cards);
+
+    //重新计算步数
+    $moves.text(0);
+}
+
+//隐藏卡片
+function cardHidden($obj){
+    $obj.removeClass().addClass('card');
+}
+
+//显示卡片
+function cardShow($obj){
+    $obj.addClass('open show');
+}
+
+//匹配卡片
+function cardMatch($obj){
+    $obj.removeClass('open show').addClass('match');
+}
+
+//步数计算
+function addMoves($obj){
+    var n =  parseInt($obj.text());
+    $obj.text(n+1);
+}
 
 // 洗牌函数来自于 http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -44,18 +96,5 @@ function shuffle(array) {
  *    + 如果所有卡都匹配，则显示带有最终分数的消息（将这个功能放在你从这个函数中调用的另一个函数中）
  */
 
-//初始化卡片,全部隐藏
-$cards.removeClass().addClass('card');
 
-//卡片点击效果
-$cards.on('click', function() {
-	$(this).addClass('open show');
-	var $opened = $cards.filter('.open');
-	if ($opened.length == 2){
-        if ($opened.first().html() == $opened.last().html()){
-            $opened.removeClass('open show').addClass('match');
-        } else {
-		    $opened.removeClass('open show');
-		}
-	}
-})
+
