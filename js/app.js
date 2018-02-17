@@ -19,6 +19,9 @@ $cards.on('click', function() {
 		addMoves($moves);
         if ($opened.first().html() == $opened.last().html()){
             cardMatch($opened);
+            if($cards.filter('.match').length == 16){
+                gameWin($moves);
+            }
         } else {
 		    cardHidden($opened);
 		}
@@ -67,6 +70,11 @@ function cardMatch($obj){
 function addMoves($obj){
     var n =  parseInt($obj.text());
     $obj.text(n+1);
+}
+
+//游戏完成
+function gameWin($obj){
+    alert("Congratulations! With "+ parseInt($obj.text()) +" moves.");
 }
 
 // 洗牌函数来自于 http://stackoverflow.com/a/2450976
