@@ -1,5 +1,8 @@
-//获取所有卡片对象
+//获取对象：卡片列表、星级列表、步数、重新开始
 var $cards = $('.card');
+var $stars = $('.stars li i');
+var $moves = $('.moves');
+var $restart = $('.restart');
 
 //获取卡片内容(HTML)，并进行洗牌
 var cardsHTML = [];
