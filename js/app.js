@@ -41,3 +41,15 @@ function shuffle(array) {
  *    + 如果所有卡都匹配，则显示带有最终分数的消息（将这个功能放在你从这个函数中调用的另一个函数中）
  */
 
+//卡片点击效果
+$cards.on('click', function() {
+	$(this).addClass('open show');
+	var $opened = $cards.filter('.open');
+	if ($opened.length == 2){
+        if ($opened.first().html() == $opened.last().html()){
+            $opened.removeClass('open show').addClass('match');
+        } else {
+		    $opened.removeClass('open show');
+		}
+	}
+})
