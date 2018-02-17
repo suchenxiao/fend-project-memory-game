@@ -1,14 +1,18 @@
-/*
- * 创建一个包含所有卡片的数组
- */
+//获取所有卡片对象
+var cards = document.getElementsByClassName('card');
 
+//获取卡片内容(HTML)，并进行洗牌
+var cardsHTML = [];
+for (var i=0; i<cards.length; i++){
+	cardsHTML[i] = cards[i].innerHTML;
+	shuffle(cardsHTML);
+}
 
-/*
- * 显示页面上的卡片
- *   - 使用下面提供的 "shuffle" 方法对数组中的卡片进行洗牌
- *   - 循环遍历每张卡片，创建其 HTML
- *   - 将每张卡的 HTML 添加到页面
- */
+//将洗牌的内容替换原内容
+for (var i=0; i<cards.length; i++){
+	cards[i].innerHTML = cardsHTML[i];
+}
+
 
 // 洗牌函数来自于 http://stackoverflow.com/a/2450976
 function shuffle(array) {
