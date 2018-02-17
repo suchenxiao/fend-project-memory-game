@@ -1,16 +1,16 @@
 /*
- * Create a list that holds all of your cards
+ * 创建一个包含所有卡片的数组
  */
 
 
 /*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
+ * 显示页面上的卡片
+ *   - 使用下面提供的 "shuffle" 方法对数组中的卡片进行洗牌
+ *   - 循环遍历每张卡片，创建其 HTML
+ *   - 将每张卡的 HTML 添加到页面
  */
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+// 洗牌函数来自于 http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -27,12 +27,12 @@ function shuffle(array) {
 
 
 /*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
+ * 设置一张卡片的事件监听器。 如果该卡片被点击：
+ *  - 显示卡片的符号（将这个功能放在你从这个函数中调用的另一个函数中）
+ *  - 将卡片添加到状态为 “open” 的 *数组* 中（将这个功能放在你从这个函数中调用的另一个函数中）
+ *  - 如果数组中已有另一张卡，请检查两张卡片是否匹配
+ *    + 如果卡片匹配，将卡片锁定为 "open" 状态（将这个功能放在你从这个函数中调用的另一个函数中）
+ *    + 如果卡片不匹配，请将卡片从数组中移除并隐藏卡片的符号（将这个功能放在你从这个函数中调用的另一个函数中）
+ *    + 增加移动计数器并将其显示在页面上（将这个功能放在你从这个函数中调用的另一个函数中）
+ *    + 如果所有卡都匹配，则显示带有最终分数的消息（将这个功能放在你从这个函数中调用的另一个函数中）
  */

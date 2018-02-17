@@ -1,3 +1,3 @@
-# How to contribute
+# 如何贡献
 
-The files in this repository are used as the starting point for all students. Because we want students to write the majority of the code themselves, pull requests (most likely) will _not_ be merged into the project.
+这个仓库中的文件是所有学员开启项目的起点。因为我们希望学员自己编写大部分代码，所以 pull requests 请求（一般情况下） _不会_ 被合并到项目中。
