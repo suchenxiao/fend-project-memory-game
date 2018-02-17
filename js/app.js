@@ -1,17 +1,17 @@
 //获取所有卡片对象
-var cards = document.getElementsByClassName('card');
+var $cards = $('.card');
 
 //获取卡片内容(HTML)，并进行洗牌
 var cardsHTML = [];
-for (var i=0; i<cards.length; i++){
-	cardsHTML[i] = cards[i].innerHTML;
-	shuffle(cardsHTML);
-}
+$cards.each(function(i) {
+    cardsHTML[i] = $(this).html();
+});
+shuffle(cardsHTML);
 
 //将洗牌的内容替换原内容
-for (var i=0; i<cards.length; i++){
-	cards[i].innerHTML = cardsHTML[i];
-}
+$cards.each(function(i) {
+    $(this).html(cardsHTML[i]);
+});
 
 
 // 洗牌函数来自于 http://stackoverflow.com/a/2450976
@@ -40,3 +40,4 @@ function shuffle(array) {
  *    + 增加移动计数器并将其显示在页面上（将这个功能放在你从这个函数中调用的另一个函数中）
  *    + 如果所有卡都匹配，则显示带有最终分数的消息（将这个功能放在你从这个函数中调用的另一个函数中）
  */
+
