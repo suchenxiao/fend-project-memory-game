@@ -14,16 +14,16 @@ restart();
 //点击卡片
 $cards.on('click', function() {
 	cardShow($(this));
-	var $opened = $cards.filter('.open');
-	if ($opened.length == 2){
+	var $shown = $cards.filter('.show');
+	if ($shown.length == 2){
 		addMoves($moves);
-        if ($opened.first().html() == $opened.last().html()){
-            cardMatch($opened);
+        if ($shown.first().html() == $shown.last().html()){
+            cardMatch($shown);
             if($cards.filter('.match').length == 16){
                 gameWin($moves);
             }
         } else {
-		    cardHidden($opened);
+		    cardHidden($shown);
 		}
 	}
 })
@@ -63,7 +63,7 @@ function cardShow($obj){
 
 //匹配卡片
 function cardMatch($obj){
-    $obj.removeClass('open show').addClass('match');
+    $obj.removeClass('show').addClass('match');
 }
 
 //步数计算
