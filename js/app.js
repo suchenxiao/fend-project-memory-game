@@ -17,7 +17,7 @@ $cards.on('click', function() {
 	var $shown = $cards.filter('.show');
 	if ($shown.length == 2){
 		addMoves($moves);
-		setTimeout(function(){ matching($shown); }, 500);
+		matching($shown);
 	}
 })
 
@@ -52,7 +52,7 @@ function matching($obj){
 			gameWin($moves);
 		}
 	} else {
-		cardHidden($obj);
+		setTimeout(function(){ cardHidden($obj); }, 500);
 	}
 }
 
