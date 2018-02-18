@@ -1,28 +1,32 @@
-//获取对象：卡片列表、星级列表、步数、重新开始
+//开始游戏，初始化
+$(function(){
+    restart();
+})
+
+//绑定对象：卡片列表、星级列表、步数、重新开始、结束页
 var $cards = $('.card');
 var $stars = $('.stars li i');
 var $moves = $('.moves');
 var $restart = $('.restart');
-//获取卡片内容(HTML)
+var $winPage = $('.win');
+
+//获取卡片内容列表(HTML)
 var cardsHTML = [];
 $cards.each(function(i) {
 	cardsHTML[i] = $(this).html();
 });
-var $winPage = $('.win');
 
-restart();
-
-//点击卡片
+//绑定卡片点击效果
 $cards.on('click', function() {
 	cardShow($(this));
 	var $shown = $cards.filter('.show');
 	if ($shown.length == 2){
-		addMoves($moves);
+		movesAdd($moves);
 		matching($shown);
 	}
 })
 
-//点击重新开始
+//绑定重新开始按钮
 $restart.on('click', function() {
     restart();
 });
@@ -39,7 +43,7 @@ function restart(){
     });
 
     //隐藏全部卡片
-	cardHidden($cards);
+	cardHide($cards);
 
     //重新计算步数
     $moves.text(0);
@@ -54,16 +58,16 @@ function matching($obj){
 	if ($obj.first().html() == $obj.last().html()){
 		cardMatch($obj);
 		if($cards.filter('.match').length == 16){
-			gameWin($moves);
+			gameWin();
 		}
 	} else {
 		$obj.css('animation','cardX 1s');
-		setTimeout(function(){ cardHidden($obj); $obj.css('animation',''); }, 1000);
+		setTimeout(function(){ cardHide($obj); $obj.css('animation',''); }, 1000);
 	}
 }
 
 //隐藏卡片
-function cardHidden($obj){
+function cardHide($obj){
     $obj.removeClass('open show match');
 }
 
@@ -77,8 +81,8 @@ function cardMatch($obj){
     $obj.removeClass('show').addClass('match');
 }
 
-//步数计算
-function addMoves($obj){
+//步数计算&调整星级
+function movesAdd($obj){
     var n =  parseInt($obj.text());
     $obj.text(n+1);
 
@@ -89,8 +93,8 @@ function addMoves($obj){
 }
 
 //游戏完成
-function gameWin($obj){
-	var words = $winPage.children('p').first().text().replace('some', parseInt($obj.text())).replace('little', 3-$stars.filter('.fa-star-o').length);
+function gameWin(){
+	var words = $winPage.children('p').first().text().replace('some', parseInt($moves.text())).replace('little', 3-$stars.filter('.fa-star-o').length);
 	$winPage.children('p').first().text( words );
 	$winPage.css({'transform': 'scale(1,1)', 'opacity': 1});
 }
