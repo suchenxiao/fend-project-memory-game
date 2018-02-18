@@ -17,14 +17,7 @@ $cards.on('click', function() {
 	var $shown = $cards.filter('.show');
 	if ($shown.length == 2){
 		addMoves($moves);
-        if ($shown.first().html() == $shown.last().html()){
-            cardMatch($shown);
-            if($cards.filter('.match').length == 16){
-                gameWin($moves);
-            }
-        } else {
-		    cardHidden($shown);
-		}
+		setTimeout(function(){ matching($shown); }, 500);
 	}
 })
 
@@ -49,6 +42,18 @@ function restart(){
 
     //重新计算步数
     $moves.text(0);
+}
+
+//进行匹配
+function matching($obj){
+	if ($obj.first().html() == $obj.last().html()){
+		cardMatch($obj);
+		if($cards.filter('.match').length == 16){
+			gameWin($moves);
+		}
+	} else {
+		cardHidden($obj);
+	}
 }
 
 //隐藏卡片
