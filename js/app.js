@@ -42,6 +42,7 @@ function restart(){
 
     //重新计算步数
     $moves.text(0);
+	$stars.removeClass('fa-star-o');
 }
 
 //进行比对
@@ -76,6 +77,11 @@ function cardMatch($obj){
 function addMoves($obj){
     var n =  parseInt($obj.text());
     $obj.text(n+1);
+
+	//调整星级
+	if (n == 9){ $stars.eq(2).addClass('fa-star-o'); }
+	if (n == 12){ $stars.eq(1).addClass('fa-star-o'); }
+	if (n == 15){ $stars.eq(0).addClass('fa-star-o'); }
 }
 
 //游戏完成
