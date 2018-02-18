@@ -71,7 +71,7 @@ h1 {
     background: #02b3e4;
     cursor: default;
 }
-.deck .card.open i{
+.deck .card.open i {
 	transform: rotateY(-180deg);
 }
 .deck .card.show {
@@ -129,4 +129,35 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+
+/*
+ * Styles for the Win Page
+ */
+.win {
+    text-align: center;
+	background: #fff;
+	width: 100%;
+	height: 100%;
+	padding-top: 100px;
+	position:fixed;
+	top: 0px;
+	transition: all ease 1s;
+	transform: scale(0,0);
+	opacity: 0;
+}
+.win h1 {
+    font-weight: bold;
+    color: #666;
+}
+.win p {
+    color: #999;
+}
+.win a {
+    background: #00b9a9;
+    color: #fff;
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
 }
