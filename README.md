@@ -2,17 +2,15 @@
 
 ## 目录
 
-- [说明](#instructions)
-- [贡献](#contributing)
+- [说明](#说明)
+- [贡献](#贡献)
 
 ## 说明
 
-记忆游戏初始项目中有一些 HTML 和 CSS 文件的静态版本。 你需要将此项目从静态项目转换为交互式项目。 这需要修改 HTML 和 CSS 文件，但主要是对 JavaScript 文件的编写。
+记忆游戏项目是[优达学城](https://cn.udacity.com)前端开发课程的练习作品。
 
-首先，请打开`js/app.js`并开始构建应用程序的功能。
-
-有关详细说明，请查看[优达学城教室](https://classroom.udacity.com/me)中的项目说明。
+游戏内容是4*4的翻牌游戏，个人感觉还挺有意思的，可以玩玩看。
 
 ## 贡献
 
-此仓库是 _所有_ 优达学城学生的入门代码。 因此，我们很可能不会接受 pull requests 请求。有关详细信息，请查看 [CONTRIBUTING.md](CONTRIBUTING.md)。
+此仓库是练手作品，后续估计不会再更新了。 因此，可能也不会接受 pull requests 请求。
