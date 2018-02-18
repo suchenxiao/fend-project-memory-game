@@ -52,7 +52,8 @@ function matching($obj){
 			gameWin($moves);
 		}
 	} else {
-		setTimeout(function(){ cardHidden($obj); }, 500);
+		$obj.css('animation','cardX 1s');
+		setTimeout(function(){ cardHidden($obj); }, 1000);
 	}
 }
 
