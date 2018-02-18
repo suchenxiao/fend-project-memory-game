@@ -71,17 +71,29 @@ h1 {
     background: #02b3e4;
     cursor: default;
 }
-
+.deck .card.open i{
+	transform: rotateY(-180deg);
+}
 .deck .card.show {
     font-size: 33px;
+}
+
+@keyframes cardO
+{
+0%   {transform:scale(1,1) rotateY(180deg)}
+20%  {transform:scale(1.1,0.9) rotateY(180deg)}
+40%  {transform:scale(0.9,1.1) rotateY(180deg)}
+60%  {transform:scale(1.05,0.95) rotateY(180deg)}
+80%  {transform:scale(0.95,1.05) rotateY(180deg)}
+100% {transform:scale(1,1) rotateY(180deg)}
 }
 
 .deck .card.match {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
+	animation: cardO 1s;
 }
-
 
 
 /*

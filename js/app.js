@@ -44,7 +44,7 @@ function restart(){
     $moves.text(0);
 }
 
-//进行匹配
+//进行比对
 function matching($obj){
 	if ($obj.first().html() == $obj.last().html()){
 		cardMatch($obj);
@@ -58,15 +58,15 @@ function matching($obj){
 
 //隐藏卡片
 function cardHidden($obj){
-    $obj.removeClass().addClass('card');
+    $obj.removeClass('open show match');
 }
 
-//显示卡片
+//翻开卡片
 function cardShow($obj){
     $obj.addClass('open show');
 }
 
-//匹配卡片
+//比对成功
 function cardMatch($obj){
     $obj.removeClass('show').addClass('match');
 }
