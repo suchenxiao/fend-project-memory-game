@@ -53,7 +53,7 @@ function matching($obj){
 		}
 	} else {
 		$obj.css('animation','cardX 1s');
-		setTimeout(function(){ cardHidden($obj); }, 1000);
+		setTimeout(function(){ cardHidden($obj); $obj.css('animation',''); }, 1000);
 	}
 }
 
