@@ -70,12 +70,13 @@ h1 {
     transform: rotateY(180deg);
     background: #02b3e4;
     cursor: default;
+    font-size: 33px;
 }
 .deck .card.open i {
 	transform: rotateY(-180deg);
 }
 .deck .card.show {
-    font-size: 33px;
+
 }
 
 @keyframes cardO

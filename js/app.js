@@ -69,7 +69,7 @@ function matching($obj){
 			gameWin();
 		}
 	} else {
-		$obj.css('animation','cardX 1s');
+		$obj.css('animation','cardX 1s').removeClass('show');
 		setTimeout(function(){ cardHide($obj); $obj.css('animation',''); }, 1000);
 	}
 }
