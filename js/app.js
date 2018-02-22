@@ -3,8 +3,9 @@ $(function(){
     restart();
 });
 
-//绑定对象：卡片列表、星级列表、步数、重新开始、结束页
+//绑定对象：卡片列表、计时器、星级列表、步数、重新开始、结束页
 var $cards = $('.card');
+var $timer = $('.timer'), timed = 0, isTiming = false, t;
 var $stars = $('.stars li i');
 var $moves = $('.moves');
 var $restart = $('.restart');
@@ -18,6 +19,10 @@ $cards.each(function(i) {
 
 //绑定卡片点击效果
 $cards.on('click', function() {
+	if(!isTiming){
+        isTiming = true;
+        timedCount();
+    }
 	cardShow($(this));
 	var $shown = $cards.filter('.show');
 	if ($shown.length == 2){
@@ -51,6 +56,9 @@ function restart(){
 
 	//隐藏结束页
 	$winPage.css({'transform': 'scale(0,0)', 'opacity': 0});
+
+	//计时器归零
+	stopCount();
 }
 
 //进行比对
@@ -91,9 +99,23 @@ function movesAdd($obj){
 	if (n == 16){ $stars.eq(1).addClass('fa-star-o'); }
 }
 
+//计时器功能
+//如果单位间隔短于1s，误差较大
+function timedCount() {
+    timed += 1;
+    $timer.text(timed);
+    t = setTimeout("timedCount()", 1000);
+}
+function stopCount() {
+    timed = 0;
+    $timer.text(timed);
+    clearTimeout(t);
+    isTiming = false;
+}
+
 //游戏完成
 function gameWin(){
-	var words = $winPage.children('p').first().text().replace('some', parseInt($moves.text())).replace('little', 3-$stars.filter('.fa-star-o').length);
+	var words = $winPage.children('p').first().text().replace('some', parseInt($moves.text())).replace('little', 3-$stars.filter('.fa-star-o').length).replace('many', timed);
 	$winPage.children('p').first().text( words );
 	$winPage.css({'transform': 'scale(1,1)', 'opacity': 1});
 }
