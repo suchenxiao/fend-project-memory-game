@@ -107,11 +107,15 @@ h1 {
 /*
  * Styles for the Score Panel
  */
-
 .score-panel {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
+}
+
+.score-panel .timer{
+	text-align:center;
+	font-size:32px;
 }
 
 .score-panel .stars {
