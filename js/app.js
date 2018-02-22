@@ -1,7 +1,7 @@
 //开始游戏，初始化
 $(function(){
     restart();
-})
+});
 
 //绑定对象：卡片列表、星级列表、步数、重新开始、结束页
 var $cards = $('.card');
@@ -24,7 +24,7 @@ $cards.on('click', function() {
 		movesAdd($moves);
 		matching($shown);
 	}
-})
+});
 
 //绑定重新开始按钮
 $restart.on('click', function() {
@@ -87,9 +87,8 @@ function movesAdd($obj){
     $obj.text(n+1);
 
 	//调整星级
-	if (n == 9){ $stars.eq(2).addClass('fa-star-o'); }
-	if (n == 12){ $stars.eq(1).addClass('fa-star-o'); }
-	if (n == 15){ $stars.eq(0).addClass('fa-star-o'); }
+	if (n == 10){ $stars.eq(2).addClass('fa-star-o'); }
+	if (n == 16){ $stars.eq(1).addClass('fa-star-o'); }
 }
 
 //游戏完成
