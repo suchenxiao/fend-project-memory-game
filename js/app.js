@@ -19,16 +19,18 @@ $cards.each(function(i) {
 
 //绑定卡片点击效果
 $cards.on('click', function() {
-	if(!isTiming){
+    if(!isTiming){
         isTiming = true;
         timedCount();
     }
-	cardShow($(this));
-	var $shown = $cards.filter('.show');
-	if ($shown.length == 2){
-		movesAdd($moves);
-		matching($shown);
-	}
+    if($(this).css('cursor') == 'pointer'){
+        cardShow($(this));
+        var $shown = $cards.filter('.show');
+        if ($shown.length == 2){
+            movesAdd($moves);
+            matching($shown);
+        }
+    }
 });
 
 //绑定重新开始按钮
@@ -115,7 +117,7 @@ function stopCount() {
 
 //游戏完成
 function gameWin(){
-	var words = $winPage.children('p').first().text().replace('some', parseInt($moves.text())).replace('little', 3-$stars.filter('.fa-star-o').length).replace('many', timed);
+	var words = 'With ' + $moves.text() + ' Moves and ' + (3 - $stars.filter('.fa-star-o').length) +' Stars in ' + timed + ' Scends.';
 	$winPage.children('p').first().text( words );
 	$winPage.css({'transform': 'scale(1,1)', 'opacity': 1});
 }
